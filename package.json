@@ -12,6 +12,14 @@
   "engines": {
     "node": ">=6"
   },
+  "keywords": [
+    "binomial",
+    "heap",
+    "es6",
+    "data",
+    "structure",
+    "typescript"
+  ],
   "devDependencies": {
     "ava": "2.2.0",
     "coveralls": "^3.0.3",
