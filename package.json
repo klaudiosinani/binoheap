@@ -1,0 +1,15 @@
+{
+  "name": "binoheap",
+  "version": "0.0.0",
+  "description": "Binomial heaps for ES6",
+  "license": "MIT",
+  "repository": "klaussinani/binoheap",
+  "author": {
+    "name": "Klaus Sinani",
+    "email": "klaussinani@gmail.com",
+    "url": "https://klaussinani.github.io"
+  },
+  "engines": {
+    "node": ">=6"
+  }
+}
