@@ -11,5 +11,8 @@
   },
   "engines": {
     "node": ">=6"
+  },
+  "devDependencies": {
+    "xo": "^0.24.0"
   }
 }
