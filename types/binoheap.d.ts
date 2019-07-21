@@ -1,9 +1,10 @@
 declare namespace node {
   export interface Constructor {
-    new <T = any>(): Instance<T>;
+    new <T = any>(key: number, value: T): Instance<T>;
   }
 
   export interface Instance<T> {
+    value: T;
     readonly key: number;
   }
 }

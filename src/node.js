@@ -9,6 +9,10 @@ class Node {
   get key() {
     return this._key;
   }
+
+  get value() {
+    return this._value;
+  }
 }
 
 module.exports = Node;
