@@ -3,7 +3,9 @@ declare namespace node {
     new <T = any>(): Instance<T>;
   }
 
-  export interface Instance<T> {}
+  export interface Instance<T> {
+    readonly key: number;
+  }
 }
 
 declare namespace heap {
