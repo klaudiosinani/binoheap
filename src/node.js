@@ -1,8 +1,9 @@
 'use strict';
 
 class Node {
-  constructor(key) {
+  constructor(key, value) {
     this._key = key;
+    this._value = value;
   }
 
   get key() {
