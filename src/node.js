@@ -4,6 +4,7 @@ class Node {
   constructor(key, value) {
     this._key = key;
     this._value = value;
+    this._parent = null;
   }
 
   get key() {
