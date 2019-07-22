@@ -32,6 +32,10 @@ class Node {
     return this._child;
   }
 
+  set child(node) {
+    this._child = node;
+  }
+
   toPair() {
     return [this._key, this._value];
   }
