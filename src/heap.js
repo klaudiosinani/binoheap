@@ -23,6 +23,12 @@ class Heap {
     return 0;
   }
 
+  clear() {
+    this._size = 0;
+    this._head = null;
+    return this;
+  }
+
   isEmpty() {
     return !this._head && this._size === 0;
   }
