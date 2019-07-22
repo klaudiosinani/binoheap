@@ -20,6 +20,7 @@ declare namespace heap {
 
   export interface Instance<T> {
     readonly size: number;
+    isEmpty(): boolean;
   }
 }
 
