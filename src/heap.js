@@ -9,6 +9,10 @@ class Heap {
   get size() {
     return this._size;
   }
+
+  isEmpty() {
+    return !this._head && this._size === 0;
+  }
 }
 
 module.exports = Heap;
