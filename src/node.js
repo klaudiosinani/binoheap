@@ -17,6 +17,10 @@ class Node {
   set value(value) {
     this._value = value;
   }
+
+  toPair() {
+    return [this._key, this._value];
+  }
 }
 
 module.exports = Node;
