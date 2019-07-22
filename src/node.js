@@ -6,6 +6,7 @@ class Node {
     this._value = value;
     this._parent = null;
     this._child = null;
+    this._sibling = null;
   }
 
   get key() {
