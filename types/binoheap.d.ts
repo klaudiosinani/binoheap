@@ -18,7 +18,9 @@ declare namespace heap {
     new <T = any>(): Instance<T>;
   }
 
-  export interface Instance<T> {}
+  export interface Instance<T> {
+    readonly size: number;
+  }
 }
 
 declare namespace binoheap {
