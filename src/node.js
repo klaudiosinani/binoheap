@@ -13,6 +13,10 @@ class Node {
   get value() {
     return this._value;
   }
+
+  set value(value) {
+    this._value = value;
+  }
 }
 
 module.exports = Node;
