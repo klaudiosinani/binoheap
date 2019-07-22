@@ -22,6 +22,10 @@ class Node {
     this._value = value;
   }
 
+  get degree() {
+    return this._degree;
+  }
+
   get parent() {
     return this._parent;
   }

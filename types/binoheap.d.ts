@@ -6,6 +6,7 @@ declare namespace node {
   export interface Instance<T> {
     readonly key: number;
     value: T;
+    readonly degree: number;
     parent: Instance<T> | null;
     child: Instance<T> | null;
     sibling: Instance<T> | null;
