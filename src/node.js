@@ -19,6 +19,10 @@ class Node {
     this._value = value;
   }
 
+  get parent() {
+    return this._parent;
+  }
+
   toPair() {
     return [this._key, this._value];
   }
