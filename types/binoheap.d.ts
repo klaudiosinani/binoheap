@@ -17,7 +17,7 @@ declare namespace heap {
   interface Node<T> extends node.Instance<T> {}
 
   export interface Constructor {
-    new <T = any>(): Instance<T>;
+    new <T = any>(comparatorFn?: (x: Node<T>, y: Node<T>) => number): Instance<T>;
   }
 
   export interface Instance<T> {

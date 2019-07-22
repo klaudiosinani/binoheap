@@ -1,9 +1,10 @@
 'use strict';
 
 class Heap {
-  constructor() {
+  constructor(comparatorFn) {
     this._head = null;
     this._size = 0;
+    this._compare = comparatorFn || this._defaultComparatorFn;
   }
 
   get size() {
