@@ -37,6 +37,10 @@ class Node {
     this._child = node;
   }
 
+  get sibling() {
+    return this._sibling;
+  }
+
   toPair() {
     return [this._key, this._value];
   }

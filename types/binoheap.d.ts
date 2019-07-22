@@ -4,10 +4,11 @@ declare namespace node {
   }
 
   export interface Instance<T> {
+    readonly key: number;
     value: T;
     parent: Instance<T> | null;
     child: Instance<T> | null;
-    readonly key: number;
+    sibling: Instance<T> | null;
     toPair(): [number, T];
   }
 }
