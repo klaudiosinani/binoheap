@@ -28,6 +28,10 @@ class Node {
     this._parent = node;
   }
 
+  get child() {
+    return this._child;
+  }
+
   toPair() {
     return [this._key, this._value];
   }
