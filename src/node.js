@@ -23,6 +23,10 @@ class Node {
     return this._parent;
   }
 
+  set parent(node) {
+    this._parent = node;
+  }
+
   toPair() {
     return [this._key, this._value];
   }
