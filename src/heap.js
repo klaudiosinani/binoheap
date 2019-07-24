@@ -11,6 +11,13 @@ class Heap {
     return this._size;
   }
 
+  _addSubTree(x, y) {
+    y.parent = x;
+    y.sibling = x.child;
+    x.child = y;
+    x._degree += 1;
+  }
+
   _defaultComparatorFn(x, y) {
     if (x.key > y.key) {
       return 1;
