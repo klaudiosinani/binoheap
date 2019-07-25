@@ -7,6 +7,10 @@ class Heap {
     this._compare = comparatorFn || this._defaultComparatorFn;
   }
 
+  get head() {
+    return this._head;
+  }
+
   get size() {
     return this._size;
   }
