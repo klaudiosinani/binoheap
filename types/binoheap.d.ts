@@ -26,6 +26,7 @@ declare namespace heap {
     readonly size: number;
     clear(): this;
     isEmpty(): boolean;
+    roots(): Array<Node<T>>;
   }
 }
 

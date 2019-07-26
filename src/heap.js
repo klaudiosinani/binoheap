@@ -43,6 +43,18 @@ class Heap {
   isEmpty() {
     return !this._head && this._size === 0;
   }
+
+  roots() {
+    const roots = [];
+    let {head: root} = this;
+
+    while (root) {
+      roots.push(root);
+      root = root.sibling;
+    }
+
+    return roots;
+  }
 }
 
 module.exports = Heap;
