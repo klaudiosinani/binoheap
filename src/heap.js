@@ -1,4 +1,5 @@
 'use strict';
+const Node = require('./node');
 
 class Heap {
   constructor(comparatorFn) {
@@ -32,6 +33,29 @@ class Heap {
     }
 
     return 0;
+  }
+
+  _mergeHeaps(x, y) {
+    let {head: xRoot} = x;
+    let {head: yRoot} = y;
+
+    const node = new Node();
+    let last = node;
+
+    while (xRoot && yRoot) {
+      if (xRoot.degree <= yRoot.degree) {
+        last.sibling = xRoot;
+        xRoot = xRoot.sibling;
+      } else {
+        last.sibling = yRoot;
+        yRoot = yRoot.sibling;
+      }
+
+      last = last.sibling;
+    }
+
+    last.sibling = xRoot || yRoot;
+    return node.sibling;
   }
 
   clear() {
