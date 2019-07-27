@@ -84,6 +84,16 @@ class Heap {
     return ext;
   }
 
+  extremumKey() {
+    const ext = this.extremum();
+
+    if (ext) {
+      return ext.key;
+    }
+
+    return undefined;
+  }
+
   insert(key, value) {
     const heap = new Heap();
     heap._head = new Node(key, value);
