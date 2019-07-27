@@ -64,6 +64,26 @@ class Heap {
     return this;
   }
 
+  findExtremum() {
+    let {head: ext} = this;
+
+    if (!ext) {
+      return undefined;
+    }
+
+    let {sibling: next} = ext;
+
+    while (next) {
+      if (this._compare(ext, next) > 0) {
+        ext = next;
+      }
+
+      next = next.sibling;
+    }
+
+    return ext;
+  }
+
   insert(key, value) {
     const heap = new Heap();
     heap._head = new Node(key, value);

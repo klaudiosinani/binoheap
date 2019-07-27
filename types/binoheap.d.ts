@@ -25,6 +25,7 @@ declare namespace heap {
     readonly head: Node<T> | null;
     readonly size: number;
     clear(): this;
+    findExtremum(): Node<T> | undefined;
     insert(key: number, value: T): this;
     isEmpty(): boolean;
     merge(heap: Instance<T>): this;
