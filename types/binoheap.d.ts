@@ -25,8 +25,9 @@ declare namespace heap {
     readonly head: Node<T> | null;
     readonly size: number;
     clear(): this;
+    insert(key: number, value: T): this;
     isEmpty(): boolean;
-    merge(heap: Instance<T>): Instance<T>;
+    merge(heap: Instance<T>): this;
     roots(): Array<Node<T>>;
   }
 }
