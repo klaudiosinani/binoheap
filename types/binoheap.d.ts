@@ -26,6 +26,7 @@ declare namespace heap {
     readonly size: number;
     clear(): this;
     isEmpty(): boolean;
+    merge(heap: Instance<T>): Instance<T>;
     roots(): Array<Node<T>>;
   }
 }
