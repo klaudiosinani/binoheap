@@ -64,6 +64,13 @@ class Heap {
     return this;
   }
 
+  insert(key, value) {
+    const heap = new Heap();
+    heap._head = new Node(key, value);
+    heap._size += 1;
+    return this.merge(heap);
+  }
+
   isEmpty() {
     return !this._head && this._size === 0;
   }
