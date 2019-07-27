@@ -27,6 +27,7 @@ declare namespace heap {
     clear(): this;
     extremum(): Node<T> | undefined;
     extremumKey(): number | undefined;
+    extremumValue(): T | undefined;
     insert(key: number, value: T): this;
     isEmpty(): boolean;
     merge(heap: Instance<T>): this;
