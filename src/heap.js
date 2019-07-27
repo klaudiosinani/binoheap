@@ -68,6 +68,43 @@ class Heap {
     return !this._head && this._size === 0;
   }
 
+  merge(heap) {
+    let head = this._mergeHeaps(this, heap);
+
+    if (head) {
+      let prev;
+      let curr = head;
+      let {sibling: next} = head;
+
+      while (next) {
+        const {sibling: postNext} = next;
+
+        if (curr.degree !== next.degree || (postNext && postNext.degree === curr.degree)) {
+          [prev, curr] = [curr, next];
+        } else if (this._compare(curr, next) < 0) {
+          curr.sibling = postNext;
+          this._addSubTree(curr, next);
+        } else {
+          if (prev) {
+            prev.sibling = next;
+          } else {
+            head = next;
+          }
+
+          this._addSubTree(next, curr);
+          curr = next;
+        }
+
+        next = postNext;
+      }
+
+      this._size += heap.size;
+      this._head = head;
+    }
+
+    return this;
+  }
+
   roots() {
     const roots = [];
     let {head: root} = this;
