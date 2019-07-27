@@ -64,7 +64,7 @@ class Heap {
     return this;
   }
 
-  findExtremum() {
+  extremum() {
     let {head: ext} = this;
 
     if (!ext) {
