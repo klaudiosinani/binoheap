@@ -50,6 +50,18 @@ class Node {
     this._sibling = node;
   }
 
+  descendants() {
+    const descendants = [];
+    let {child: node} = this;
+
+    while (node) {
+      descendants.push(node);
+      node = node.child;
+    }
+
+    return descendants;
+  }
+
   siblings() {
     const siblings = [];
     let {sibling: node} = this;
