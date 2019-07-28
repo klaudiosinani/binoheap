@@ -130,6 +130,10 @@ class Heap {
     return undefined;
   }
 
+  heapTrees() {
+    return this.roots().length;
+  }
+
   insert(key, value) {
     const heap = new Heap();
     heap._head = new Node(key, value);

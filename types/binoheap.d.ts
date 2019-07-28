@@ -28,6 +28,7 @@ declare namespace heap {
     extremum(): Node<T> | undefined;
     extremumKey(): number | undefined;
     extremumValue(): T | undefined;
+    heapTrees(): number;
     insert(key: number, value: T): this;
     isEmpty(): boolean;
     merge(heap: Instance<T>): this;
