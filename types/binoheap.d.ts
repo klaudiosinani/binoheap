@@ -10,6 +10,7 @@ declare namespace node {
     parent: Instance<T> | null;
     child: Instance<T> | null;
     sibling: Instance<T> | null;
+    siblings(): Array<Instance<T>>;
     toPair(): [number, T];
   }
 }

@@ -50,6 +50,18 @@ class Node {
     this._sibling = node;
   }
 
+  siblings() {
+    const siblings = [];
+    let {sibling: node} = this;
+
+    while (node) {
+      siblings.push(node);
+      node = node.sibling;
+    }
+
+    return siblings;
+  }
+
   toPair() {
     return [this._key, this._value];
   }
