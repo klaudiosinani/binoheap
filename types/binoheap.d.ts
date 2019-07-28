@@ -31,6 +31,7 @@ declare namespace heap {
     extremumKey(): number | undefined;
     extremumValue(): T | undefined;
     heapTrees(): number;
+    includes(key: number): boolean;
     insert(key: number, value: T): this;
     isEmpty(): boolean;
     merge(heap: Instance<T>): this;

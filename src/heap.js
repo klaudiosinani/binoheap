@@ -134,6 +134,46 @@ class Heap {
     return this.roots().length;
   }
 
+  includes(key) {
+    let {head: current} = this;
+
+    if (current) {
+      const queue = [];
+
+      while (current || queue.length > 0) {
+        const siblings = current.siblings();
+        let nodes = siblings.length + 1;
+
+        queue.push(...siblings);
+
+        while (nodes > 0) {
+          console.log({
+            key: current.key,
+            child: current.child ? current.child.key : null,
+            sibling: current.sibling ? current.sibling.key : null,
+            nodes,
+            queue: queue.length
+          });
+
+          if (current.key === key) {
+            return true;
+          }
+
+          const {child} = current;
+
+          if (child) {
+            queue.push(child);
+          }
+
+          nodes -= 1;
+          current = queue.shift();
+        }
+      }
+    }
+
+    return false;
+  }
+
   insert(key, value) {
     const heap = new Heap();
     heap._head = new Node(key, value);
