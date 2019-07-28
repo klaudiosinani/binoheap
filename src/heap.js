@@ -147,14 +147,6 @@ class Heap {
         queue.push(...siblings);
 
         while (nodes > 0) {
-          console.log({
-            key: current.key,
-            child: current.child ? current.child.key : null,
-            sibling: current.sibling ? current.sibling.key : null,
-            nodes,
-            queue: queue.length
-          });
-
           if (current.key === key) {
             return true;
           }
