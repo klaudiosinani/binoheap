@@ -58,6 +58,18 @@ class Heap {
     return node.sibling;
   }
 
+  _removeRoot(rootPrev, root) {
+    const {sibling} = root;
+
+    if (!rootPrev && this.head === root) {
+      this._head = sibling;
+    } else {
+      rootPrev.sibling = sibling;
+    }
+
+    this._size -= 1;
+  }
+
   clear() {
     this._size = 0;
     this._head = null;
