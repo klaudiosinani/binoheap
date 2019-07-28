@@ -31,6 +31,7 @@ declare namespace heap {
     insert(key: number, value: T): this;
     isEmpty(): boolean;
     merge(heap: Instance<T>): this;
+    removeExtremum(): Node<T> | undefined;
     roots(): Array<Node<T>>;
   }
 }

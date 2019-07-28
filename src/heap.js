@@ -178,6 +178,36 @@ class Heap {
     return this;
   }
 
+  removeExtremum() {
+    let {head: ext} = this;
+
+    if (!ext) {
+      return undefined;
+    }
+
+    let extPrev;
+    let curr = ext;
+    let {sibling: next} = ext;
+
+    while (next) {
+      if (this._compare(ext, next) > 0) {
+        ext = next;
+        extPrev = curr;
+      }
+
+      curr = next;
+      next = next.sibling;
+    }
+
+    this._removeRoot(extPrev, ext);
+
+    const heap = new Heap();
+    heap._head = this._reverseRoots(ext.child);
+
+    this.merge(heap);
+    return ext;
+  }
+
   roots() {
     const roots = [];
     let {head: root} = this;
