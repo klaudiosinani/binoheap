@@ -70,6 +70,20 @@ class Heap {
     this._size -= 1;
   }
 
+  _reverseRoots(root) {
+    let prev = null;
+
+    while (root) {
+      const {sibling: next} = root;
+      root.sibling = prev;
+      root.parent = null;
+      prev = root;
+      root = next;
+    }
+
+    return prev;
+  }
+
   clear() {
     this._size = 0;
     this._head = null;
