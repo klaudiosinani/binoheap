@@ -255,6 +255,38 @@ class Heap {
 
     return roots;
   }
+
+  search(key) {
+    let {head: current} = this;
+
+    if (current) {
+      const queue = [];
+
+      while (current || queue.length > 0) {
+        const siblings = current.siblings();
+        let nodes = siblings.length + 1;
+
+        queue.push(...siblings);
+
+        while (nodes > 0) {
+          if (current.key === key) {
+            return current;
+          }
+
+          const {child} = current;
+
+          if (child) {
+            queue.push(child);
+          }
+
+          nodes -= 1;
+          current = queue.shift();
+        }
+      }
+    }
+
+    return undefined;
+  }
 }
 
 module.exports = Heap;
