@@ -24,3 +24,18 @@ Visit the [contributing guidelines](https://github.com/klaussinani/binoheap/blob
 ## Contents
 
 - [Description](#description)
+- [Install](#install)
+
+## Install
+
+### Yarn
+
+```bash
+yarn add binoheap
+```
+
+### NPM
+
+```bash
+npm install binoheap
+```
