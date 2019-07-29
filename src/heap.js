@@ -23,6 +23,17 @@ class Heap {
     x._degree += 1;
   }
 
+  _bubbleUp(current) {
+    let {parent} = current;
+
+    while (parent && this._compare(current, parent) < 0) {
+      [current._key, parent._key] = [parent._key, current._key];
+      [current.value, parent.value] = [parent.value, current.value];
+      current = parent;
+      parent = parent.parent;
+    }
+  }
+
   _defaultComparatorFn(x, y) {
     if (x.key > y.key) {
       return 1;
