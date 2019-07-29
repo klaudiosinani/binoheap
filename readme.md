@@ -70,7 +70,7 @@ heap.isEmpty();
 heap.insert(1, 'A');
 //=> Heap { 
 // size: 1,
-// head: Node { key: 1, value: 'A', degree: 0, parent: null, child: null } }
+// head: Node { key: 1, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
 
 heap.isEmpty();
 //=> false
@@ -79,13 +79,13 @@ heap.size;
 //=> 1
 
 heap.head;
-//=> Node { key: 1, value: 'A', degree: 0, parent: null, child: null }
+//=> Node { key: 1, value: 'A', degree: 0, parent: null, child: null, sibling: null }
 
 heap.head.toPair();
 //=> [1, 'A']
 
 const node = new Node(1, 'A');
-//=> Node { key: 1, value: 'A', degree: 0, parent: null, child: null }
+//=> Node { key: 1, value: 'A', degree: 0, parent: null, child: null, sibling: null }
 
 heap.head.key === node.key;
 //=> true
