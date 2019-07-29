@@ -14,3 +14,13 @@
     <img alt="Coverage Status" src="https://coveralls.io/repos/github/klaussinani/binoheap/badge.svg?branch=master">
   </a>
 </p>
+
+## Description
+
+ES6 implementation of the binomial heap data structure with TypeScript support.
+
+Visit the [contributing guidelines](https://github.com/klaussinani/binoheap/blob/master/contributing.md#translating-documentation) to learn more on how to translate this document into more languages.
+
+## Contents
+
+- [Description](#description)
