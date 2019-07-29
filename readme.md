@@ -92,7 +92,7 @@ heap.isEmpty();
 //=> true
 
 heap.insert(1, 'A');
-//=> Heap { 
+//=> Heap {
 // size: 1,
 // head: Node { key: 1, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
 
@@ -127,7 +127,7 @@ heap
   .insert(5, 'E')
   .insert(6, 'F')
   .insert(7, 'G');
-//=> Heap { 
+//=> Heap {
 // size: 7,
 // head: Node { key: 7, value: 'G', degree: 0, parent: null, child: null, sibling: [Node] } }
 
@@ -181,17 +181,17 @@ const heap2 = new Heap((x, y) => y.key - x.key));
 heap2
   .insert(8, 'H')
   .insert(9, 'I');
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 9, value: 'I', degree: 1, parent: null, child: [Node], sibling: null } }
 
 heap2.updateKey(8, 15);
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 15, value: 'H', degree: 1, parent: null, child: [Node], sibling: null } }
 
 heap.merge(heap2);
-//=> Heap { 
+//=> Heap {
 // size: 8,
 // head: Node { key: 15, value: 'H', degree: 3, parent: null, child: [Node], sibling: null } }
 
@@ -217,7 +217,7 @@ const {Heap} = require('binoheap');
 const heap = new Heap();
 
 heap.insert(10, 'A');
-//=> Heap { 
+//=> Heap {
 // size: 1,
 // head: Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
 heap.head;
@@ -239,7 +239,7 @@ heap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 heap.size;
@@ -261,13 +261,13 @@ heap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 heap.size;
 // => 3
 heap.clear();
-//=> Heap { 
+//=> Heap {
 // size: 0,
 // head: null }
 heap.size;
@@ -290,7 +290,7 @@ minHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 minHeap.extremum();
@@ -303,7 +303,7 @@ maxHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 maxHeap.extremum();
@@ -326,7 +326,7 @@ minHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 minHeap.extremumKey();
@@ -339,7 +339,7 @@ maxHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 maxHeap.extremumKey();
@@ -362,7 +362,7 @@ minHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 minHeap.extremumValue();
@@ -375,7 +375,7 @@ maxHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 maxHeap.extremumKey();
@@ -397,7 +397,7 @@ heap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 heap.heapTrees();
@@ -425,7 +425,7 @@ heap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 heap.includes(20);
@@ -444,7 +444,7 @@ Mutates the heap by inserting a new node at the appropriate location. Returns th
 
 - Type: `Number`
 
-Can be any number that will correspond to the `key` of the created node. 
+Can be any number that will correspond to the `key` of the created node.
 
 ##### **`value`**
 
@@ -458,13 +458,13 @@ const {Heap} = require('binoheap');
 const heap = new Heap();
 
 heap.insert(10, 'A');
-//=> Heap { 
+//=> Heap {
 // size: 1,
 // head: Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
 heap
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 ```
@@ -483,7 +483,7 @@ const heap = new Heap();
 heap.isEmpty();
 // => true
 heap.insert(10, 'A');
-//=> Heap { 
+//=> Heap {
 // size: 1,
 // head: Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
 heap.isEmpty();
@@ -511,7 +511,7 @@ heap1
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 
@@ -521,12 +521,12 @@ heap2
   .insert(40, 'D')
   .insert(50, 'E')
   .insert(60, 'F');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 60, value: 'F', degree: 0, parent: null, child: null, sibling: [Node] } }
 
 heap1.merge(heap2);
-//=> Heap { 
+//=> Heap {
 // size: 6,
 // head: Node { key: 30, value: 'C', degree: 1, parent: null, child: [Node], sibling: [Node] } }
 ```
@@ -542,7 +542,7 @@ The removed node is returned by the method if the heap is not empty. If the heap
 
 - Type: `Number`
 
-Can be any number that corresponds to the `key` of an existing node. 
+Can be any number that corresponds to the `key` of an existing node.
 
 ```js
 const {Heap} = require('binoheap');
@@ -554,13 +554,13 @@ minHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 minHeap.removeExtremum();
 //=> Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
 minHeap;
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
 
@@ -571,13 +571,13 @@ maxHeap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 maxHeap.removeExtremum();
 //=> Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] }
 maxHeap;
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
 ```
@@ -597,7 +597,7 @@ heap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 heap.roots();
@@ -628,7 +628,7 @@ heap
   .insert(10, 'A')
   .insert(20, 'B')
   .insert(30, 'C');
-//=> Heap { 
+//=> Heap {
 // size: 3,
 // head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
 heap.search(10);
@@ -649,7 +649,7 @@ The method can be used to **only decrease or increase** the key value of targete
 
 - Type: `Number`
 
-Can be any number that corresponds to the `key` of an existing node. 
+Can be any number that corresponds to the `key` of an existing node.
 
 ##### **`newKey`**
 
@@ -666,7 +666,7 @@ const minHeap = new Heap((x, y) => x.key - y.key);
 minHeap
   .insert(10, 'A')
   .insert(20, 'B');
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null } }
 minHeap.head;
@@ -675,7 +675,7 @@ minHeap.head.child;
 //=> Node { key: 20, value: 'B', degree: 0, parent: [Node], child: null, sibling: null }
 
 minHeap.updateKey(20, 5);
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 5, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
 minHeap.head;
@@ -690,7 +690,7 @@ const maxHeap = new Heap((x, y) => y.key - x.key);
 maxHeap
   .insert(10, 'A')
   .insert(20, 'B');
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
 maxHeap.head;
@@ -699,7 +699,7 @@ maxHeap.head.child;
 //=> Node { key: 10, value: 'A', degree: 0, parent: [Node], child: null, sibling: null }
 
 maxHeap.update(10, 25);
-//=> Heap { 
+//=> Heap {
 // size: 2,
 // head: Node { key: 25, value: 'A', degree: 1, parent: null, child: [Node], sibling: null } }
 maxHeap.head;
