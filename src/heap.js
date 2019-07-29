@@ -276,6 +276,17 @@ class Heap {
 
     return undefined;
   }
+
+  updateKey(key, newKey) {
+    const target = this.search(key);
+
+    if (target && this._compare({key: newKey}, target) < 0) {
+      target._key = newKey;
+      this._bubbleUp(target);
+    }
+
+    return this;
+  }
 }
 
 module.exports = Heap;

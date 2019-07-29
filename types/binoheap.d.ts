@@ -38,6 +38,7 @@ declare namespace heap {
     removeExtremum(): Node<T> | undefined;
     roots(): Array<Node<T>>;
     search(key: number): Node<T> | undefined;
+    updateKey(key: number, newKey: number): this;
   }
 }
 
