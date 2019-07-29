@@ -135,32 +135,10 @@ class Heap {
   }
 
   includes(key) {
-    let {head: current} = this;
+    const node = this.search(key);
 
-    if (current) {
-      const queue = [];
-
-      while (current || queue.length > 0) {
-        const siblings = current.siblings();
-        let nodes = siblings.length + 1;
-
-        queue.push(...siblings);
-
-        while (nodes > 0) {
-          if (current.key === key) {
-            return true;
-          }
-
-          const {child} = current;
-
-          if (child) {
-            queue.push(child);
-          }
-
-          nodes -= 1;
-          current = queue.shift();
-        }
-      }
+    if (node) {
+      return true;
     }
 
     return false;
