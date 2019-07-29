@@ -27,6 +27,7 @@ Visit the [contributing guidelines](https://github.com/klaussinani/binoheap/blob
 - [Install](#install)
 - [In Depth](#in-depth)
 - [Usage](#usage)
+- [API](#api)
 - [Development](#development)
 - [Related](#related)
 - [Team](#team)
@@ -200,6 +201,511 @@ heap.head.descendants();
 //  Node { key: 2, value: 'B', degree: 1, parent: [Node], child: [Node], sibling: [Node] },
 //  Node { key: 1, value: 'A', degree: 0, parent: [Node], child: null, sibling: null },
 // ]
+```
+
+## API
+
+#### heap.`head`
+
+- Return Type: `Node | null`
+
+Returns the head node of the heap. If the heap is empty then `null` is returned.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap.insert(10, 'A');
+//=> Heap { 
+// size: 1,
+// head: Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
+heap.head;
+// => Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null }
+```
+
+#### heap.`size`
+
+- Return Type: `Number`
+
+Returns the total number of nodes residing in the heap.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+heap.size;
+// => 3
+```
+
+#### heap.`clear()`
+
+- Return Type: `Heap`
+
+Mutates the heap by removing all residing nodes and returns it empty.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+heap.size;
+// => 3
+heap.clear();
+//=> Heap { 
+// size: 0,
+// head: null }
+heap.size;
+//=> 0
+```
+
+#### heap.`extremum()`
+
+- Return Type: `Node | undefined`
+
+Returns the node corresponding to the minimum `key` value, if the heap is minimum-ordered or the node corresponding to the maximum `key`, if the heap is maximum-ordered. If the heap is empty then `undefined` is returned.
+
+```js
+const {Heap} = require('binoheap');
+
+// Create a minimum-ordered heap
+const minHeap = new Heap((x, y) => x.key - y.key);
+
+minHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+minHeap.extremum();
+//=> Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
+
+// Create a maximum-ordered heap
+const maxHeap = new Heap((x, y) => y.key - x.key);
+
+maxHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+maxHeap.extremum();
+//=> Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] }
+```
+
+#### heap.`extremumKey()`
+
+- Return Type: `Number | undefined`
+
+Returns the minimum `key` value, if the heap is minimum-ordered or the maximum `key` value, if the heap is maximum-ordered. If the heap is empty then `undefined` is returned.
+
+```js
+const {Heap} = require('binoheap');
+
+// Create a minimum-ordered heap
+const minHeap = new Heap((x, y) => x.key - y.key);
+
+minHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+minHeap.extremumKey();
+//=> 10
+
+// Create a maximum-ordered heap
+const maxHeap = new Heap((x, y) => y.key - x.key);
+
+maxHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+maxHeap.extremumKey();
+//=> 30
+```
+
+#### heap.`extremumValue()`
+
+- Return Type: `Any | undefined`
+
+Returns the `value` corresponding to the node with the minimum `key` in the heap, if the heap is minimum-ordered or the `value` corresponding to the node with the maximum `key`, if the heap is maximum-ordered.  If the heap is empty then `undefined` is returned.
+
+```js
+const {Heap} = require('binoheap');
+
+// Create a minimum-ordered heap
+const minHeap = new Heap((x, y) => x.key - y.key);
+
+minHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+minHeap.extremumValue();
+//=> 'A'
+
+// Create a maximum-ordered heap
+const maxHeap = new Heap((x, y) => y.key - x.key);
+
+maxHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+maxHeap.extremumKey();
+//=> 'C'
+```
+
+#### heap.`heapTrees()`
+
+- Return Type: `Number`
+
+Returns the number of binomial trees that the heap is comprised of.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+heap.heapTrees();
+//=> 2
+```
+
+#### heap.`includes(key)`
+
+- Return Type: `Boolean`
+
+Traverses the nodes in the binomial heap level by level, from left to right & from top to bottom, and determines whether the heap includes a node with the given `key` value, returning `true` or `false` as appropriate.
+
+##### **`key`**
+
+- Type: `Number`
+
+Node `key` to search for.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+heap.includes(20);
+//=> true
+heap.includes(5);
+//=> false
+```
+
+#### heap.`insert(key, value)`
+
+- Return Type: `Heap`
+
+Mutates the heap by inserting a new node at the appropriate location. Returns the heap itself.
+
+##### **`key`**
+
+- Type: `Number`
+
+Can be any number that will correspond to the `key` of the created node. 
+
+##### **`value`**
+
+- Type: `Any`
+
+Can be any value that will stored in the created node.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap.insert(10, 'A');
+//=> Heap { 
+// size: 1,
+// head: Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
+heap
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+```
+
+#### heap.`isEmpty()`
+
+- Return Type: `Boolean`
+
+Determines whether the heap is empty, returning `true` or `false` as appropriate.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap.isEmpty();
+// => true
+heap.insert(10, 'A');
+//=> Heap { 
+// size: 1,
+// head: Node { key: 10, value: 'A', degree: 0, parent: null, child: null, sibling: null } }
+heap.isEmpty();
+// => false
+```
+
+#### heap.`merge(heap)`
+
+- Return Type: `Heap`
+
+Mutates the `Heap` instance by merging it with the given binomial heap. Returns the resulting merged heap.
+
+##### **`heap`**
+
+- Type: `Heap`
+
+Heap to merge with the `Heap` instance.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap1 = new Heap();
+
+heap1
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+
+const heap2 = new Heap();
+
+heap2
+  .insert(40, 'D')
+  .insert(50, 'E')
+  .insert(60, 'F');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 60, value: 'F', degree: 0, parent: null, child: null, sibling: [Node] } }
+
+heap1.merge(heap2);
+//=> Heap { 
+// size: 6,
+// head: Node { key: 30, value: 'C', degree: 1, parent: null, child: [Node], sibling: [Node] } }
+```
+
+#### heap.`removeExtremum()`
+
+- Return Type: `Node | undefined`
+
+Mutates the heap by removing the node corresponding to the minimum `key` value, if the heap is minimum-ordered or the node corresponding to the maximum `key` if the heap is maximum-ordered. 
+The removed node is returned by the method if the heap is not empty. If the heap is empty then `undefined` is returned instead.
+
+##### **`key`**
+
+- Type: `Number`
+
+Can be any number that corresponds to the `key` of an existing node. 
+
+```js
+const {Heap} = require('binoheap');
+
+// Create a minimum-ordered heap
+const minHeap = new Heap((x, y) => x.key - y.key);
+
+minHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+minHeap.removeExtremum();
+//=> Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
+minHeap;
+//=> Heap { 
+// size: 2,
+// head: Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
+
+// Create a maximum-ordered heap
+const maxHeap = new Heap((x, y) => y.key - x.key);
+
+maxHeap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+maxHeap.removeExtremum();
+//=> Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] }
+maxHeap;
+//=> Heap { 
+// size: 2,
+// head: Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
+```
+
+#### heap.`roots()`
+
+- Return Type: `Array<Node>`
+
+Traverses the root nodes of the binomial trees residing in the heap and stores of each traversed root node in an array. At the end of the traversal, the method returns the array which will contain all tree root nodes in ascending `degree` order.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+heap.roots();
+//=> [
+//  Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] },
+//  Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
+// ]
+```
+
+#### heap.`search(key)`
+
+- Return Type: `Node | undefined`
+
+Traverses the nodes in the binomial heap level by level, from left to right & from top to bottom, and determines whether the heap includes a node with the given `key` value, returning node itself, without mutating the heap, or `undefined` as appropriate.
+
+##### **`key`**
+
+- Type: `Number`
+
+Node `key` to search for.
+
+```js
+const {Heap} = require('binoheap');
+
+const heap = new Heap();
+
+heap
+  .insert(10, 'A')
+  .insert(20, 'B')
+  .insert(30, 'C');
+//=> Heap { 
+// size: 3,
+// head: Node { key: 30, value: 'C', degree: 0, parent: null, child: null, sibling: [Node] } }
+heap.search(10);
+//=>  Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
+heap.includes(5);
+//=> undefined
+```
+
+#### heap.`updateKey(key, newKey)`
+
+- Return Type: `Heap`
+
+Traverses the nodes in the binomial heap level by level, from left to right & from top to bottom, and determines whether the heap includes a node with the given `key` value. If the node is found then, its `key` value is mutated by replacing it with the new `newKey` one. Returns the heap itself.
+
+The method can be used to **only decrease or increase** the key value of targeted nodes if the binomial heap is either **minimum** or **maximum** ordered.
+
+##### **`key`**
+
+- Type: `Number`
+
+Can be any number that corresponds to the `key` of an existing node. 
+
+##### **`newKey`**
+
+- Type: `Number`
+
+New number value to be used as node key.
+
+```js
+const {Heap} = require('binoheap');
+
+// Create a minimum-ordered heap
+const minHeap = new Heap((x, y) => x.key - y.key);
+
+minHeap
+  .insert(10, 'A')
+  .insert(20, 'B');
+//=> Heap { 
+// size: 2,
+// head: Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null } }
+minHeap.head;
+//=> Node { key: 10, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
+minHeap.head.child;
+//=> Node { key: 20, value: 'B', degree: 0, parent: [Node], child: null, sibling: null }
+
+minHeap.updateKey(20, 5);
+//=> Heap { 
+// size: 2,
+// head: Node { key: 5, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
+minHeap.head;
+//=> Node { key: 5, value: 'B', degree: 1, parent: null, child: [Node], sibling: null }
+minHeap.head.child;
+//=> Node { key: 10, value: 'A', degree: 0, parent: [Node], child: null, sibling: null }
+
+
+// Create a maximum-ordered heap
+const maxHeap = new Heap((x, y) => y.key - x.key);
+
+maxHeap
+  .insert(10, 'A')
+  .insert(20, 'B');
+//=> Heap { 
+// size: 2,
+// head: Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null } }
+maxHeap.head;
+//=> Node { key: 20, value: 'B', degree: 1, parent: null, child: [Node], sibling: null }
+maxHeap.head.child;
+//=> Node { key: 10, value: 'A', degree: 0, parent: [Node], child: null, sibling: null }
+
+maxHeap.update(10, 25);
+//=> Heap { 
+// size: 2,
+// head: Node { key: 25, value: 'A', degree: 1, parent: null, child: [Node], sibling: null } }
+maxHeap.head;
+//=> Node { key: 25, value: 'A', degree: 1, parent: null, child: [Node], sibling: null }
+maxHeap.head.child;
+//=> Node { key: 20, value: 'B', degree: 0, parent: [Node], child: null, sibling: null }
 ```
 
 ## Development
