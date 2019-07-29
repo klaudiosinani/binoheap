@@ -25,6 +25,7 @@ Visit the [contributing guidelines](https://github.com/klaussinani/binoheap/blob
 
 - [Description](#description)
 - [Install](#install)
+- [In Depth](#in-depth)
 - [Usage](#usage)
 - [Development](#development)
 - [Related](#related)
@@ -44,6 +45,28 @@ yarn add binoheap
 ```bash
 npm install binoheap
 ```
+
+## In Depth
+
+A binomial heap data structure, is a specific implementation of the heap data structure, comprised of collections of binomial trees that are linearly linked together, where each tree is an minimum or maximum ordered heap. Binomial heaps are similar to binary heaps but they have a more specific structure and allow for efficient `O(log n)` heap merging.
+
+A binomial heap is implemented as a set of binomial trees, compared to a binary heap that has the shape of a single binary tree, which are defined recursively as follows:
+
+- A binomial tree of order `0` is a single node.
+- A binomial tree of order `k` has a root node whose children are roots of binomial trees of orders `k−1`, `k−2`, ..., `2`, `1`, `0`.
+
+A binomial tree of order `k` has `2^k` nodes and height `k`. Because of its unique structure, a binomial tree of order `k` can be constructed from two trees of order `k−1` by attaching one of them as the leftmost child of the root of the other. This feature is central to the merge operation of a binomial heap, which is its major advantage over other conventional heaps.
+
+Additionally, each tree in the binomial heap should satisfy the binomial heap properties:
+
+- There can only be either one or zero binomial trees for each order, including zero order.
+- Each binomial tree in a heap obeys the minimum-heap property or the maximum-heap property, if the heap is either minimum or maximum ordered:
+  - Minimum-Heap Property: the key of a node is greater than or equal to the key of its parent.
+  - Maximum-Heap Property: the key of a node is smaller than or equal to the key of its parent.
+
+The first property implies that a binomial heap with `n` nodes consists of at most `1 + log2 n` binomial trees. The second property ensures that the root of each binomial tree contains the smallest or the largest key in the tree, which applies to the entire heap.
+
+Binoheap binomial heaps are implemented using doubly linear linked lists for storing nodes, thus parent nodes point directly to their children and the child nodes point back to their parent. Each node contains a `parent`, `sibling` & `child` pointer, as well as a `key`, a `value` and a `degree` property.
 
 ## Usage
 
