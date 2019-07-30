@@ -49,7 +49,7 @@ npm install binoheap
 
 ## In Depth
 
-A binomial heap data structure, is a specific implementation of the heap data structure, comprised of collections of binomial trees that are linearly linked together, where each tree is an minimum or maximum ordered heap. Binomial heaps are similar to binary heaps but they have a more specific structure and allow for efficient `O(log n)` heap merging.
+A binomial heap data structure, is a specific implementation of the heap data structure, comprised of collections of binomial trees that are linearly linked together, where each tree is a minimum or maximum ordered heap. Binomial heaps are similar to binary heaps but they have a more specific structure and allow for efficient `O(log n)` heap merging.
 
 A binomial heap is implemented as a set of binomial trees, compared to a binary heap that has the shape of a single binary tree, which are defined recursively as follows:
 
@@ -75,7 +75,7 @@ Binoheap exposes a chainable API, that can be utilized through a simple and mini
 
 To create a **min-ordered binomial heap**, where the nodes of each binomial tree obey the **min-heap property**, according to which the parent node is always smaller than or equal to its children nodes, we provide as argument to the `Heap` class, on instantiation, a binary comparator function `compareMin(x, y)`, which returns a positive number when the node `x` is greater than node `y`, zero when equal and a negative number when less than.
 
-Additionally, to create a **max-ordered binomial heap**, where the nodes of each binomial tree obey the **max-heap property**, according to which the parent node is always greater than or equal to its children nodes, we provide as argument to the `Heap` class on, instantiation, a binary comparator function `compareMax(x, y)`, which returns a negative number when the node `x` is greater than the node `y`, zero when equal and a positive number when less than.
+Additionally, to create a **max-ordered binomial heap**, where the nodes of each binomial tree obey the **max-heap property**, according to which the parent node is always greater than or equal to its children nodes, we provide as argument to the `Heap` class, on instantiation, a binary comparator function `compareMax(x, y)`, which returns a negative number when the node `x` is greater than the node `y`, zero when equal and a positive number when less than.
 
 By default, if no comparator function is provided on instantiation, a **min-ordered binomial heap** instance is returned, where the `key` value of each node is used for maintaining the **min-heap property** by the comparator function.
 
