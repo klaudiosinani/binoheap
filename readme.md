@@ -538,12 +538,6 @@ heap1.merge(heap2);
 Mutates the heap by removing the node corresponding to the minimum `key` value, if the heap is minimum-ordered or the node corresponding to the maximum `key` if the heap is maximum-ordered. 
 The removed node is returned by the method if the heap is not empty. If the heap is empty then `undefined` is returned instead.
 
-##### **`key`**
-
-- Type: `Number`
-
-Can be any number that corresponds to the `key` of an existing node.
-
 ```js
 const {Heap} = require('binoheap');
 
@@ -805,7 +799,7 @@ node1.child = node2;
 // => Node { key: 10, value: 'A', degree: 0, parent: null, child: [Node], sibling: null }
 ```
 
-#### node.`child`
+#### node.`sibling`
 
 - Return Type: `Node | null`
 
