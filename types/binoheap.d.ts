@@ -1,6 +1,6 @@
 declare namespace node {
   export interface Constructor {
-    new <T = any>(key: number, value: T): Instance<T>;
+    new <T = unknown>(key: number, value: T): Instance<T>;
   }
 
   export interface Instance<T> {
@@ -20,7 +20,7 @@ declare namespace heap {
   interface Node<T> extends node.Instance<T> {}
 
   export interface Constructor {
-    new <T = any>(comparatorFn?: (x: Node<T>, y: Node<T>) => number): Instance<T>;
+    new <T = unknown>(comparatorFn?: (x: Node<T>, y: Node<T>) => number): Instance<T>;
   }
 
   export interface Instance<T> {
@@ -43,8 +43,8 @@ declare namespace heap {
 }
 
 declare namespace binoheap {
-  export interface Heap<T = any> extends heap.Instance<T> {}
-  export interface Node<T = any> extends node.Instance<T> {}
+  export interface Heap<T = unknown> extends heap.Instance<T> {}
+  export interface Node<T = unknown> extends node.Instance<T> {}
 }
 
 declare const binoheap: {
